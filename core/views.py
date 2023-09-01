@@ -486,6 +486,7 @@ def hybrid_recommendation(user, product):
 
 def product_detail(request, category_slug, slug):
     product = get_object_or_404(Product, slug=slug, status=Product.ACTIVE)
+    '''
     product.view_count += 1
     product.save()
     UserItemInteraction.objects.create(user=request.user, product=product)
@@ -518,9 +519,10 @@ def product_detail(request, category_slug, slug):
     empty_stars = [1 for x in range(no_empty_stars)]
 
 
-
+   '''
     return render(request, 'product_detail.html', {
         'product': product,
+        '''
         'recommended_products': recommended_products,
         'recommended_products2': recommended_products2,
         'recommended_products3': recommended_products3,
@@ -531,6 +533,8 @@ def product_detail(request, category_slug, slug):
         'ratings': ratings,
         'average_rating': average_rating,
         'full_stars': full_stars, 'half_star': half_star, 'empty_stars': empty_stars,
+        '''
+        
     })
 
 
