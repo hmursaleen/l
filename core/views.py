@@ -8,11 +8,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.utils.text import slugify
 from django.db.models import Q, Count, Avg
 from .models import Product, Category, UserItemInteraction, Order, OrderItem, Userprofile, UserPurchase, Comment, UserRating
-from sklearn.metrics.pairwise import cosine_similarity, pairwise_distances, linear_kernel
+from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
-from itertools import chain
-from sklearn.preprocessing import MinMaxScaler
-import numpy as np
 import json
 from django.http import JsonResponse, HttpResponse
 from django.template.loader import render_to_string
