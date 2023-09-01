@@ -304,15 +304,8 @@ def search(request):
 
 
 
-import nltk
-from nltk.tokenize import word_tokenize
-
 def preprocess_text(text):
-    tokens = word_tokenize(text)
-    tokens = [token for token in tokens if token] 
-    tokens = ['NUM' if token.isdigit() else token for token in tokens]
-    tokens = [token.strip() for token in tokens]
-    tokens = list(set(tokens))
+    tokens = text.split()
     return tokens
 
     
