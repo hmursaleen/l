@@ -90,23 +90,24 @@ WSGI_APPLICATION = 'shopit.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 #
-'''
+
 DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'BVFQdrKwzwCCsDL5Fnmm',
-        'HOST': 'containers-us-west-156.railway.app',
-        'PORT': '7467',
+        'PASSWORD': 'pqGrzT9HL5i3YimoxJdz',
+        'HOST': 'containers-us-west-167.railway.app',
+        'PORT': '7928',
     }
 }
-'''
 
+'''
 DATABASES = {
     'default' : dj_database_url.parse('postgres://ecommerce_db_kqs1_user:9egvNzKhmRWJjb9IKPhEISGKsQn4QzG9@dpg-cjo8sikdfrcc73e8dogg-a.singapore-postgres.render.com/ecommerce_db_kqs1')
 }
+'''
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -149,8 +150,11 @@ EMAIL_HOST_PASSWORD = 'xbysulfpxxtpdujr'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
