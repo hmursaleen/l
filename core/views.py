@@ -490,7 +490,7 @@ def product_detail(request, category_slug, slug):
     product.save()
     UserItemInteraction.objects.create(user=request.user, product=product)
     recommended_products = item_based_collaborative_filtering(product)
-    recommended_products2 = user_based_collaborative_filtering(request.user)
+    #recommended_products2 = user_based_collaborative_filtering(request.user)
     recommended_products3 = content_based_recommendation(request.user, product)
 
     user_bought_products = UserPurchase.objects.filter(user=request.user, product=product).exists()
