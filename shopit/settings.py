@@ -16,6 +16,9 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import environ
+env = environ.Env()
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -27,7 +30,7 @@ SECRET_KEY = 'django-insecure-d++$01&zrs*)bv7d_ok%t%&v!a=1anho_*gp0&5$qnirc36)ev
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 CART_SESSION_ID = 'cart'
@@ -84,8 +87,8 @@ WSGI_APPLICATION = 'shopit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#database_url = os.environ.get("DATABASE_URL")
-
+#
+'''
 DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
@@ -97,8 +100,11 @@ DATABASES = {
         'PORT': '7467',
     }
 }
+'''
 
-#DATABASES["default"] = dj_database_url.parse(database_url)
+DATABASES = {
+    'default' : dj_database_url.parse('postgres://ecommerce_db_kqs1_user:9egvNzKhmRWJjb9IKPhEISGKsQn4QzG9@dpg-cjo8sikdfrcc73e8dogg-a.singapore-postgres.render.com/ecommerce_db_kqs1')
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
