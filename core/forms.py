@@ -35,7 +35,7 @@ class OrderForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['category', 'title', 'description', 'price', 'image', 'thumbnail']
+        fields = ['category', 'title', 'description', 'tags', 'price', 'image', 'thumbnail']
 
         widgets = {
 		'category' : forms.Select(attrs={
@@ -49,6 +49,10 @@ class ProductForm(forms.ModelForm):
 		'description' : forms.Textarea(attrs={
 			'class' : 'w-full p-4 border border-gray-200 rounded-xl'
 			}),
+
+        'tags' : forms.TextInput(attrs={
+            'class' : 'w-full p-4 border border-gray-200 rounded-xl'
+            }),
 
 		'price' : forms.TextInput(attrs={
 			'class' : 'w-full p-4 border border-gray-200 rounded-xl'

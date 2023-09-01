@@ -80,20 +80,7 @@ def mystore_order_detail(request, pk):
 
 
 
-'''
-@login_required
-def add_product(request):
-    if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES)
-        if form.is_valid():
-            product = form.save(commit=False)
-            product.user = request.user
-            product.save()
-            return redirect('mystore')  # Redirect to a page displaying the list of products
-    else:
-        form = ProductForm()
-    return render(request, 'add_product.html', {'form': form})
-'''
+
 
 
 
