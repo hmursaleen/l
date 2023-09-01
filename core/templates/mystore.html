@@ -52,7 +52,7 @@
                 {% if product.image %}
                 <div class="image mb-2">
                     {% load static %}
-                    <img src="{% static {{ product.image.url }} %}" alt="Image of {{ product.title }}">
+                    <img src="{% static product.image.url %}" alt="Image of {{ product.title }}">
                 </div>
                 {% endif %}
                 <h2 class="text-xl">{{ product.title }}</h2>
