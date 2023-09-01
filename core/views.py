@@ -11,6 +11,7 @@ from .models import Product, Category, UserItemInteraction, Order, OrderItem, Us
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 import json
+import numpy as np
 from django.http import JsonResponse, HttpResponse
 from django.template.loader import render_to_string
 from .cart import Cart
