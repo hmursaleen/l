@@ -6,7 +6,8 @@
 {% block content %}
 {% if product.image %}
 <div class="flex justify-center mb-3">
-  <img src="{{ product.image.url }}" alt="Image of {{ product.title }}">
+    {% load static %}
+  <img src="{% static {{ product.image.url }} %}" alt="Image of {{ product.title }}">
 </div>
 {% endif %}
 
@@ -135,7 +136,8 @@
     <div class="p-4 bg-gray-100"> 
       <a href="{%  url 'product_detail' product.category.slug product.slug %}">
       <div class="image mb-2">
-        <img src="{{ product.get_thumbnail }}" alt="Image of {{ product.title }}">
+        {% load static %}
+        <img src="{% {{ product.get_thumbnail }} %}" alt="Image of {{ product.title }}">
       </div>
       <h2 class="text-xl">{{ product.title }}</h2>
       <p class="text-s text-gray-600">৳ {{ product.price }} </p>
@@ -154,7 +156,8 @@
     <div class="p-4 bg-gray-100"> 
       <a href="{%  url 'product_detail' product.category.slug product.slug %}">
       <div class="image mb-2">
-        <img src="{{ product.get_thumbnail }}" alt="Image of {{ product.title }}">
+        {% load static %}
+        <img src="{% static {{ product.get_thumbnail }} %}" alt="Image of {{ product.title }}">
       </div>
       <h2 class="text-xl">{{ product.title }}</h2>
       <p class="text-s text-gray-600">৳ {{ product.price }} </p>
@@ -174,7 +177,8 @@
     <div class="p-4 bg-gray-100"> 
       <a href="{%  url 'product_detail' product.category.slug product.slug %}">
       <div class="image mb-2">
-        <img src="{{ product.get_thumbnail }}" alt="Image of {{ product.title }}">
+        {% load static %}
+        <img src="{% static {{ product.get_thumbnail }} %}" alt="Image of {{ product.title }}">
       </div>
       <h2 class="text-xl">{{ product.title }}</h2>
       <p class="text-s text-gray-600">৳ {{ product.price }} </p>
