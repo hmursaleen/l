@@ -4,8 +4,7 @@
         <div class="p-4 bg-gray-100 h-full flex flex-col justify-between"> <!-- inner padding of 4, flex column to distribute space -->
             <a href="{% url 'product_detail' product.category.slug product.slug %}">
                 <div class="image mb-2" style="flex: 1;"> <!-- flex: 1 to occupy available space -->
-                    {% load static %}
-                    <img src="{% static product.get_thumbnail %}" alt="Image of {{ product.title }}" style="max-height: 100%; width: auto;">
+                <img src="{{ product.thumbnail.url }}" alt="Image of {{ product.title }}" style="max-height: 100%; width: auto;">
                 </div>
                 <div>
                     <h2 class="text-xl">{{ product.title }}</h2>
