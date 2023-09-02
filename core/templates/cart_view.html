@@ -10,8 +10,7 @@
             {% for item in cart %}
                 <div class="flex items-center bg-white shadow-md p-4 rounded-lg">
                     <div class="flex-shrink-0">
-                        {% load static %}
-                        <img src="{% static item.product.get_thumbnail %}" alt="{{ item.product.title }}" class="w-24 h-24 object-cover rounded-md">
+                        <img src="{{ item.product.get_thumbnail }}" alt="{{ item.product.title }}" class="w-24 h-24 object-cover rounded-md">
                     </div>
                     <div class="ml-4">
                         <h2 class="text-lg font-semibold">{{ item.product.title }}</h2>
