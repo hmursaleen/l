@@ -6,8 +6,7 @@
 {% block content %}
 {% if product.image %}
 <div class="flex justify-center mb-3">
-    {% load static %}
-  <img src="{% static product.image.url %}" alt="Image of {{ product.title }}">
+  <img src="{{ product.image.url }}" alt="Image of {{ product.title }}">
 </div>
 {% endif %}
 
