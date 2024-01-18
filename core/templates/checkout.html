@@ -3,15 +3,16 @@
 {% block title %}Checkout{% endblock %}
 
 {% block content %}
-    <h1 class="text-3xl font-semibold mb-6 text-center">Checkout</h1>
 
-    <h2 class="text-xl text-gray-500">Total cost: ${{ cart.get_total_cost }}</h2>
+{% if user.is_authenticated %}
+<h1 class="text-3xl font-semibold mb-6 text-center">Checkout</h1>
 
-    {{ form.as_p }}
-    <div class="text-center">
-        <button class="inline-block w-full px-8 py-4 bg-blue-500 text-white hover:bg-blue-700 rounded-lg" onclick="buy(event)">Checkout</button>
-    </div>
-{% endblock %}
+<h2 class="text-xl text-gray-500">Total cost: ${{ cart.get_total_cost }}</h2>
+
+{{ form.as_p }}
+<div class="text-center">
+    <button class="inline-block w-full px-8 py-4 bg-blue-500 text-white hover:bg-blue-700 rounded-lg" onclick="buy(event)">Checkout</button>
+</div>
 
 {% block scripts %}
 <script type="application/javascript" src="https://js.stripe.com/v3/"></script>
@@ -56,4 +57,10 @@
         return false;
     }
 </script>
+{% endblock %}
+
+{% else %}
+    <p>You are not logged in. Please <a href="{% url 'login' %}" class="py-2 px-4 bg-blue-500 hover:bg-blue-700 rounded-xl text-white">Login</a>.</p>
+{% endif %}
+   
 {% endblock %}

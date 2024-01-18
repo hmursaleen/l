@@ -3,7 +3,13 @@
 {% block title %}My account{% endblock %}
 
 {% block content %}
+
+{% if user.is_authenticated %}
 <h1 class="text-2xl">My account</h1>
 
 <a href="{% url 'logout' %}" class="mt-6 inline-block py-4 px-8 bg-red-400 text-white">Log Out</a>
+{% else %}
+    <p>You are not logged in. Please <a href="{% url 'login' %}" class="py-2 px-4 bg-blue-500 hover:bg-blue-700 rounded-xl text-white">Login</a>.</p>
+{% endif %}
+
 {% endblock %}

@@ -1,8 +1,11 @@
 {% extends "base.html" %} 
 {% block title %}{{ category.title }}{% endblock %}
 {% block content %}
-
+{% if user.is_authenticated %}
 <h1 class="text-2xl">{{ category.title }}</h1>
 {% include 'products.html' %}
+{% else %}
+    <p>You are not logged in. Please <a href="{% url 'login' %}" class="py-2 px-4 bg-blue-500 hover:bg-blue-700 rounded-xl text-white">Login</a>.</p>
+{% endif %}
 
 {% endblock %}
