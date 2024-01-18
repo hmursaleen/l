@@ -3,5 +3,10 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-{% include 'products.html' %}
+{% if user.is_authenticated %}
+    {% include 'products.html' %}
+{% else %}
+    <p>You are not logged in. Please <a href="{% url 'login' %}" class="py-2 px-4 bg-blue-500 hover:bg-blue-700 rounded-xl text-white">Login</a>.</p>
+{% endif %}
+
 {% endblock %}
