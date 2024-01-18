@@ -156,7 +156,7 @@ def myaccount(request):
 
 
 
-
+@login_required
 def add_to_cart(request, product_id):
     cart = Cart(request)
     cart.add(product_id)
@@ -173,7 +173,7 @@ def success(request):
 
 
 
-
+@login_required
 def change_quantity(request, product_id):
     action = request.GET.get('action', '')
 
@@ -189,7 +189,7 @@ def change_quantity(request, product_id):
 
 
 
-
+@login_required
 def remove_from_cart(request, product_id):
     cart = Cart(request)
     cart.remove(product_id)
@@ -198,7 +198,7 @@ def remove_from_cart(request, product_id):
 
 
 
-
+@login_required
 def cart_view(request):
     cart = Cart(request)
 
@@ -483,7 +483,7 @@ def hybrid_recommendation(user, product):
 
 
 
-
+@login_required
 def product_detail(request, category_slug, slug):
     product = get_object_or_404(Product, slug=slug, status=Product.ACTIVE)
     product.view_count += 1
@@ -538,7 +538,7 @@ def product_detail(request, category_slug, slug):
 
 
 
-
+@login_required
 def category_detail(request, slug):
     category = get_object_or_404(Category, slug=slug)
     products = category.products.filter(status=Product.ACTIVE)
@@ -554,7 +554,7 @@ def category_detail(request, slug):
 
 
 
-
+@login_required
 def vendor_detail(request, pk):
     user = get_object_or_404(User, pk=pk)
     products = user.products.filter(status=Product.ACTIVE)
